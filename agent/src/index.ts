@@ -7,6 +7,8 @@ import { LensAgentClient } from "@ai16z/client-lens";
 import { SlackClientInterface } from "@ai16z/client-slack";
 import { TelegramClientInterface } from "@ai16z/client-telegram";
 import { TwitterClientInterface } from "@ai16z/client-twitter";
+import { FarcasterAgentClient } from "@ai16z/client-farcaster";
+import { GitHubClientInterface } from "@ai16z/client-github";
 import {
     AgentRuntime,
     CacheManager,
@@ -386,6 +388,14 @@ export async function initializeClients(
         const lensClient = new LensAgentClient(runtime);
         lensClient.start();
         clients.lens = lensClient;
+    }
+
+    if (clientTypes.includes("github")) {
+        const githubClient = await GitHubClientInterface.start(runtime);
+        if (githubClient) {
+            elizaLogger.log("GitHubClientInterface start");
+            clients.github = githubClient;
+        }
     }
 
     elizaLogger.log("client keys", Object.keys(clients));
