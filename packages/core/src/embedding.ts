@@ -23,7 +23,7 @@ export const getEmbeddingConfig = () => ({
               ? 1024 // Ollama mxbai-embed-large
               :settings.USE_GAIANET_EMBEDDING?.toLowerCase() === "true"
                 ? 768 // GaiaNet
-                : 384, // BGE
+                : 1024, // fast-multilingual-e5-large
     model:
         settings.USE_OPENAI_EMBEDDING?.toLowerCase() === "true"
             ? "text-embedding-3-small"
@@ -31,7 +31,7 @@ export const getEmbeddingConfig = () => ({
               ? settings.OLLAMA_EMBEDDING_MODEL || "mxbai-embed-large"
               : settings.USE_GAIANET_EMBEDDING?.toLowerCase() === "true"
                 ? settings.GAIANET_EMBEDDING_MODEL || "nomic-embed"
-                : "BGE-small-en-v1.5",
+                : "fast-multilingual-e5-large",
     provider:
         settings.USE_OPENAI_EMBEDDING?.toLowerCase() === "true"
             ? "OpenAI"
@@ -282,9 +282,9 @@ export async function embed(runtime: IAgentRuntime, input: string) {
 
             const embeddingModel = await FlagEmbedding.init({
                 cacheDir: cacheDir,
-                model: EmbeddingModel.BGESmallENV15,
+                model: EmbeddingModel.MLE5Large,
                 // BGE-small-en-v1.5 specific settings
-                maxLength: 512, // BGE's context window
+                // maxLength: 512, // BGE's context window
             });
 
             elizaLogger.debug("Generating embedding for input:", {
@@ -351,10 +351,10 @@ export async function embed(runtime: IAgentRuntime, input: string) {
                 );
             }
 
-            // Validate embedding dimensions (should be 384 for BGE-small)
-            if (finalEmbedding.length !== 384) {
+            // Validate embedding dimensions (should be 1024 for fast-multilingual-e5-large)
+            if (finalEmbedding.length !== 1024) {
                 elizaLogger.warn(
-                    `Unexpected embedding dimension: ${finalEmbedding.length} (expected 384)`
+                    `Unexpected embedding dimension: ${finalEmbedding.length} (expected 1024)`
                 );
             }
 
