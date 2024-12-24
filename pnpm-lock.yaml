@@ -120,6 +120,9 @@ importers:
       '@ai16z/client-farcaster':
         specifier: workspace:*
         version: link:../packages/client-farcaster
+      '@ai16z/client-github':
+        specifier: workspace:*
+        version: link:../packages/client-github
       '@ai16z/client-lens':
         specifier: workspace:*
         version: link:../packages/client-lens
@@ -602,7 +605,7 @@ importers:
         version: link:../core
       '@lens-protocol/client':
         specifier: 2.2.0
-        version: 2.2.0(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(react@18.3.1)
+        version: 2.2.0(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)
       '@lens-protocol/metadata':
         specifier: 1.2.0
         version: 1.2.0(zod@3.23.8)
@@ -8595,7 +8598,7 @@ packages:
       - wait-for-expect
     dev: false
 
-  /@lens-protocol/client@2.2.0(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(react@18.3.1):
+  /@lens-protocol/client@2.2.0(@lens-protocol/metadata@1.2.0)(ethers@6.13.4):
     resolution: {integrity: sha512-UU+8ICeUmOsGEUQcaG/GdpX+y2MTMrHaM9zvZmm3AeHqnwpC3WPO1AiouWuXcXV3XKdaG4ZizPVsXD5Kwqt87Q==}
     engines: {node: '>=18 <21'}
     peerDependencies:
@@ -8613,7 +8616,7 @@ packages:
       '@ethersproject/providers': 5.7.2
       '@ethersproject/wallet': 5.7.0
       '@lens-protocol/blockchain-bindings': 0.10.2
-      '@lens-protocol/gated-content': 0.5.1(@ethersproject/abi@5.7.0)(@ethersproject/address@5.7.0)(@ethersproject/bignumber@5.7.0)(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(react@18.3.1)(zod@3.23.8)
+      '@lens-protocol/gated-content': 0.5.1(@ethersproject/abi@5.7.0)(@ethersproject/address@5.7.0)(@ethersproject/bignumber@5.7.0)(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(zod@3.23.8)
       '@lens-protocol/metadata': 1.2.0(zod@3.23.8)
       '@lens-protocol/shared-kernel': 0.12.0
       '@lens-protocol/storage': 0.8.1
@@ -8674,7 +8677,7 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /@lens-protocol/gated-content@0.5.1(@ethersproject/abi@5.7.0)(@ethersproject/address@5.7.0)(@ethersproject/bignumber@5.7.0)(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(react@18.3.1)(zod@3.23.8):
+  /@lens-protocol/gated-content@0.5.1(@ethersproject/abi@5.7.0)(@ethersproject/address@5.7.0)(@ethersproject/bignumber@5.7.0)(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(@lens-protocol/metadata@1.2.0)(ethers@6.13.4)(zod@3.23.8):
     resolution: {integrity: sha512-rXD0/lkdFIGrwi7+LLgxYwb1Bbsnbi3XouUxfXbqBD32YwKkpYRNb0EfYcB3HZOQv9vmeTTlyrozNKxWoCBJ3A==}
     peerDependencies:
       '@ethersproject/abi': ^5.7.0
@@ -8700,7 +8703,7 @@ packages:
       '@lit-protocol/constants': 2.1.62
       '@lit-protocol/crypto': 2.1.62
       '@lit-protocol/encryption': 2.1.62
-      '@lit-protocol/node-client': 2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(react@18.3.1)
+      '@lit-protocol/node-client': 2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)
       '@lit-protocol/types': 2.1.62
       siwe: 2.3.2(ethers@6.13.4)
       tslib: 2.8.1
@@ -8892,7 +8895,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@lit-protocol/auth-browser@2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(react@18.3.1):
+  /@lit-protocol/auth-browser@2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0):
     resolution: {integrity: sha512-/4BTl0omR+JUCyJJc93FCiygSn/4ldrbeBuzWYQzuOFh2f6fcY1GJe3ttEoSJUfwu7OblW86YpWAT65b56rACA==}
     dependencies:
       '@lit-protocol/constants': 2.1.62
@@ -8900,7 +8903,7 @@ packages:
       '@lit-protocol/misc-browser': 2.1.62
       '@lit-protocol/types': 2.1.62
       '@lit-protocol/uint8arrays': 2.1.62
-      '@walletconnect/ethereum-provider': 2.17.3(react@18.3.1)
+      '@walletconnect/ethereum-provider': 2.17.3
       ethers: 5.7.2
       lit-connect-modal: 0.1.11
       lit-siwe: 1.1.8(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)
@@ -9015,11 +9018,11 @@ packages:
     resolution: {integrity: sha512-0v9fa6Sd4xphjlYMZ9L8TTyR7G4YLvp323E8OJ76giuaPla4HXuwSiGMzUOaC6NKraArSrd54CKkHJ/bxEqVDA==}
     dev: false
 
-  /@lit-protocol/node-client@2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(react@18.3.1):
+  /@lit-protocol/node-client@2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0):
     resolution: {integrity: sha512-rLEUleDoJ+AATZfWNWXvy7UdSrUXMyCjpyB5bevVfk9YjIa5rd9BBXdFENCIA+9kLgVOgtND/R1PpEI/vZkMmw==}
     dependencies:
       '@lit-protocol/access-control-conditions': 2.1.62
-      '@lit-protocol/auth-browser': 2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)(react@18.3.1)
+      '@lit-protocol/auth-browser': 2.1.62(@ethersproject/contracts@5.7.0)(@ethersproject/hash@5.7.0)(@ethersproject/providers@5.7.2)(@ethersproject/wallet@5.7.0)
       '@lit-protocol/bls-sdk': 2.1.62
       '@lit-protocol/constants': 2.1.62
       '@lit-protocol/crypto': 2.1.62
@@ -9031,7 +9034,7 @@ packages:
       '@lit-protocol/nacl': 2.1.62
       '@lit-protocol/types': 2.1.62
       '@lit-protocol/uint8arrays': 2.1.62
-      '@walletconnect/ethereum-provider': 2.17.3(react@18.3.1)
+      '@walletconnect/ethereum-provider': 2.17.3
       ethers: 5.7.2
       jszip: 3.10.1
       lit-connect-modal: 0.1.11
@@ -11214,6 +11217,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.8
+      napi-wasm: 1.1.3
     dev: false
     bundledDependencies:
       - napi-wasm
@@ -11295,6 +11299,9 @@ packages:
   /@phala/dstack-sdk@0.1.6(typescript@5.6.3):
     resolution: {integrity: sha512-/JNlCDvgQmqAs+3N9qbRjqQdm4UCd1iYmkjH7cE7ejwWcoF4b4bSikiQdMK+fQ3be8T7FJupjWw52ysHWsnwmQ==}
     engines: {node: '>=18.0.0'}
+    peerDependenciesMeta:
+      viem:
+        optional: true
     optionalDependencies:
       viem: 2.21.54(typescript@5.6.3)(zod@3.23.8)
     transitivePeerDependencies:
@@ -15654,7 +15661,7 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@walletconnect/ethereum-provider@2.17.3(react@18.3.1):
+  /@walletconnect/ethereum-provider@2.17.3:
     resolution: {integrity: sha512-fgoT+dT9M1P6IIUtBl66ddD+4IJYqdhdAYkW+wa6jbctxKlHYSXf9HsgF/Vvv9lMnxHdAIz0W9VN4D/m20MamA==}
     dependencies:
       '@walletconnect/jsonrpc-http-connection': 1.0.8
@@ -16581,6 +16588,7 @@ packages:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==}
     engines: {node: '>=10'}
     deprecated: This package is no longer supported.
+    requiresBuild: true
     dependencies:
       delegates: 1.0.0
       readable-stream: 3.6.2
@@ -28025,6 +28033,10 @@ packages:
 
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
+    dev: false
+
+  /napi-wasm@1.1.3:
+    resolution: {integrity: sha512-h/4nMGsHjZDCYmQVNODIrYACVJ+I9KItbG+0si6W/jSjdA9JbWDoU4LLeMXVcEQGHjttI2tuXqDrbGF7qkUHHg==}
     dev: false
 
   /natural-compare@1.4.0:
