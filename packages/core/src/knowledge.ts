@@ -141,7 +141,8 @@ export function preprocess(content: string): string {
             // Remove multiple newlines
             .replace(/\n{3,}/g, "\n\n")
             // Remove special characters except those common in URLs
-            .replace(/[^a-zA-Z0-9\s\-_./:?=&]/g, "")
+            // This will remove all Chinese characters, temporarily disabled
+            //.replace(/[^a-zA-Z0-9\s\-_./:?=&]/g, "")
             .trim()
             .toLowerCase()
     );
