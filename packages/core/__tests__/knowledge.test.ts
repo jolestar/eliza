@@ -64,6 +64,11 @@ describe("Knowledge Module", () => {
             const input = "/* Block comment */ Normal text // Line comment";
             expect(knowledge.preprocess(input)).toBe("normal text");
         });
+
+        it("should not remove Chinese characters", () => {
+            const input = "你好，Eliza！";
+            expect(knowledge.preprocess(input)).toBe("你好，Eliza！");
+        });
     });
 
     describe("get and set", () => {
